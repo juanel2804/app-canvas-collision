@@ -1,21 +1,54 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <!-- Definimos la codificación de caracteres a UTF-8 -->
     <meta charset="UTF-8">
-    <!-- Configuración del viewport para que sea responsivo en diferentes dispositivos -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Título de la página -->
     <title>POO con Canvas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+        }
+        .container {
+            max-width: 500px;
+        }
+        #canvas-container {
+            display: none;
+            position: relative;
+        }
+        canvas {
+            background: #ff8;
+            border-radius: 10px;
+        }
+    </style>
 </head>
-
-<body bgcolor="grey">
-    <!-- Definimos el canvas en el que se dibujarán los círculos -->
-    <canvas id="canvas"></canvas>
-
-    <!-- Enlazamos el archivo JavaScript externo -->
-    <script src="js/main.js"></script>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-3">Simulación de Círculos</h1>
+        <div class="card p-3 shadow-lg bg-dark text-white">
+            <div class="mb-2">
+                <label for="numCircles" class="form-label">Número de Círculos (1-50)</label>
+                <input type="number" id="numCircles" class="form-control" min="1" max="50" value="10">
+            </div>
+            <div class="mb-2">
+                <label for="speedFactor" class="form-label">Velocidad (0.1 - 5)</label>
+                <input type="number" id="speedFactor" class="form-control" step="0.1" min="0.1" max="5" value="2">
+            </div>
+            <button id="startButton" class="btn btn-primary w-100">Iniciar</button>
+        </div>
+    </div>
     
+    <div id="canvas-container" class="mt-3 text-center">
+        <canvas id="canvas"></canvas>
+        <div class="mt-2">
+            <button id="stopButton" class="btn btn-danger">Detener</button>
+            <button id="restartButton" class="btn btn-secondary">Reiniciar</button>
+        </div>
+    </div>
+    
+    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
